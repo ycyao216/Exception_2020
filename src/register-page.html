@@ -13,16 +13,6 @@
             document.getElementById("add").appendChild(dv)
         }
 
-        function addAllButton(){
-            var fs = require("fs");
-            var text = fs.readFileSync("./mytext.txt").toString('utf-8');
-            var lines = text.split(/\r\n|\n/);
-         
-            for (var i = 0; i < lines.length; i++){
-                addButton(lines[i]);
-            }
-        }
-
         function addTag(tag, id){
             var dv = document.createElement('div')
             dv.innerText = tag
@@ -38,7 +28,7 @@
 
 </head>
 
-<body>
+<body onload="addAllButton()">
     <!--<label for="uname">搜索tag:</label>
     <input type="text">
     <button>搜索</button><br><br>
@@ -46,32 +36,35 @@
     <center><h1>
         选择你的标签🙂
     </h1></center>
-    <script type="text/javascript">
-        addAllButton();
-    </script>
     <a href =""><button>完成</button></a>
     <p>已选择的标签</p>
     <div id="existed"></div>
     <br></br>
     <p>热门标签</p>
     <div id="add"></div>
-
-    <!--<form action="demo-form.php" method="get">
-        <input list="browsers" name="browser">
-        <datalist id="browsers">
-          <option value="Internet Explorer">
-          <option value="Firefox">
-          <option value="Chrome">
-          <option value="Opera">
-          <option value="Safari">
-        </datalist>
-        <input type="button" value="提交">
-        </form>
-    -->
+    <script type="text/javascript">
+        addButton("编程");
+        addButton("鬼畜");
+        addButton("篮球");
+        addButton("麻将");
+        addButton("垂钓");
+        addButton("极限运动");
+        addButton("绘真·妙笔千山");
+        addButton("第五人格");
+        addButton("阴阳师");
+        addButton("决战！平安京");
+        addButton("烹饪");
+        addButton("投资");
+        addButton("旅行");
+        addButton("女装");
+        addButton("二次元");
+        addButton("ASMR");
+    </script>
+    
     <p>添加你的个性标签</p>
     <input type="text" id="personal"></input>
     <button onclick=addPersonal("personal","existed")>添加</button>
-
+    
 
         
 
