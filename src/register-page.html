@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!--<label for="uname">搜索tag:</label>
+    <input type="text">
+    <button>搜索</button><br><br>
+    -->
+
+    <a href =""><button>完成</button></a>
+    <p>已选择的标签</p>
+    <div id="existed"></div>
+    <br></br>
+    <p>全部标签</p>
+    <button onclick=addTag("网抑云","existed")>网抑云</button><br></br>
+    <button onclick=addTag("网易邮箱","existed")>网易邮箱</button><br></br>
+    <button onclick=addTag("网易游戏","existed")>网易游戏</button><br></br>
+    <script type="text/javascript">
+        function addButton(tag){
+            var html ="<input type=\"button\" value=\"新加\" >";
+            document.getElementById("add").innerHTML=html;
+        }
+
+        function saveTag(){
+            alert("标签已储存")
+        }
+
+        function addTag(tag, id){
+            var dv = document.createElement('div')
+            dv.innerText = tag
+            document.getElementById(id).appendChild(dv)
+        }
+
+
+    </script>
+    <div id="add"></div>
+
+    <!--<form action="demo-form.php" method="get">
+        <input list="browsers" name="browser">
+        <datalist id="browsers">
+          <option value="Internet Explorer">
+          <option value="Firefox">
+          <option value="Chrome">
+          <option value="Opera">
+          <option value="Safari">
+        </datalist>
+        <input type="button" value="提交">
+        </form>
+    -->
+    
+
+        
+
+
+
+</body>
+</html>
