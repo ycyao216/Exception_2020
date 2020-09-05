@@ -21,10 +21,24 @@
     <button onclick=addTag("网易邮箱","existed")>网易邮箱</button><br></br>
     <button onclick=addTag("网易游戏","existed")>网易游戏</button><br></br>
     <script type="text/javascript">
-        function addButton(tag){
-            var html ="<input type=\"button\" value=\"新加\" >";
-            document.getElementById("add").innerHTML=html;
+        var tagList = new Array()
+        for (var i = 0; i<10; i++){
+            tagList[i]=i
         }
+
+        function addButton(tag){
+            var dv = document.createElement('div')
+            dv.innerHTML = '<input type=\"button\" value="'+tag+'" onclick=addTag("'+tag+'",\"existed\")>'
+            document.getElementById("add").appendChild(dv)
+        }
+
+        function addAllButton(tagList){
+            for (var i = 0; i<tagList.length; i++){
+                addButton(tagList[i])
+            }
+        }
+
+        document.addAllButton(tagList)
 
         function saveTag(){
             alert("标签已储存")
