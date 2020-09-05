@@ -14,18 +14,13 @@
         }
 
         function addAllButton(){
-            var tagList = new Array()
-            for (var i = 0; i<10; i++){
-                tagList[i]=i
+            var fs = require("fs");
+            var text = fs.readFileSync("./mytext.txt").toString('utf-8');
+            var lines = text.split(/\r\n|\n/);
+         
+            for (var i = 0; i < lines.length; i++){
+                addButton(lines[i]);
             }
-            for (var i = 0; i<tagList.length; i++){
-                addButton(tagList[i])
-            }
-        }
-
-
-        function saveTag(){
-            alert("标签已储存")
         }
 
         function addTag(tag, id){
@@ -43,7 +38,7 @@
 
 </head>
 
-<body onload="addAllButton()">
+<body>
     <!--<label for="uname">搜索tag:</label>
     <input type="text">
     <button>搜索</button><br><br>
@@ -51,6 +46,9 @@
     <center><h1>
         选择你的标签🙂
     </h1></center>
+    <script type="text/javascript">
+        addAllButton();
+    </script>
     <a href =""><button>完成</button></a>
     <p>已选择的标签</p>
     <div id="existed"></div>
@@ -73,7 +71,7 @@
     <p>添加你的个性标签</p>
     <input type="text" id="personal"></input>
     <button onclick=addPersonal("personal","existed")>添加</button>
-    
+
 
         
 
