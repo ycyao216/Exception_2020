@@ -4,27 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-</head>
-<body>
-    <!--<label for="uname">搜索tag:</label>
-    <input type="text">
-    <button>搜索</button><br><br>
-    -->
-
-    <a href =""><button>完成</button></a>
-    <p>已选择的标签</p>
-    <div id="existed"></div>
-    <br></br>
-    <p>全部标签</p>
-    <button onclick=addTag("网抑云","existed")>网抑云</button><br></br>
-    <button onclick=addTag("网易邮箱","existed")>网易邮箱</button><br></br>
-    <button onclick=addTag("网易游戏","existed")>网易游戏</button><br></br>
     <script type="text/javascript">
-        var tagList = new Array()
-        for (var i = 0; i<10; i++){
-            tagList[i]=i
-        }
+
 
         function addButton(tag){
             var dv = document.createElement('div')
@@ -32,13 +13,16 @@
             document.getElementById("add").appendChild(dv)
         }
 
-        function addAllButton(tagList){
+        function addAllButton(){
+            var tagList = new Array()
+            for (var i = 0; i<10; i++){
+                tagList[i]=i
+            }
             for (var i = 0; i<tagList.length; i++){
                 addButton(tagList[i])
             }
         }
 
-        document.addAllButton(tagList)
 
         function saveTag(){
             alert("标签已储存")
@@ -50,8 +34,28 @@
             document.getElementById(id).appendChild(dv)
         }
 
+        function addPersonal(id1,id2){
+            var text = document.getElementById(id1).value
+            addTag(text,id2)
+        }
 
     </script>
+
+</head>
+
+<body onload="addAllButton()">
+    <!--<label for="uname">搜索tag:</label>
+    <input type="text">
+    <button>搜索</button><br><br>
+    -->
+    <center><h1>
+        选择你的标签🙂
+    </h1></center>
+    <a href =""><button>完成</button></a>
+    <p>已选择的标签</p>
+    <div id="existed"></div>
+    <br></br>
+    <p>热门标签</p>
     <div id="add"></div>
 
     <!--<form action="demo-form.php" method="get">
@@ -66,6 +70,9 @@
         <input type="button" value="提交">
         </form>
     -->
+    <p>添加你的个性标签</p>
+    <input type="text" id="personal"></input>
+    <button onclick=addPersonal("personal","existed")>添加</button>
     
 
         
